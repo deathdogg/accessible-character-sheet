@@ -11,6 +11,11 @@
 		C577CBA529074C4F0046DD71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577CBA429074C4F0046DD71 /* ContentView.swift */; };
 		C577CBA729074C500046DD71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C577CBA629074C500046DD71 /* Assets.xcassets */; };
 		C577CBAA29074C500046DD71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C577CBA929074C500046DD71 /* Preview Assets.xcassets */; };
+		C577CBB229074D9A0046DD71 /* SheetCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577CBB129074D9A0046DD71 /* SheetCreatorView.swift */; };
+		C577CBB4290750260046DD71 /* SheetViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577CBB3290750260046DD71 /* SheetViewerView.swift */; };
+		C577CBB62907503A0046DD71 /* SheetPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577CBB52907503A0046DD71 /* SheetPickerView.swift */; };
+		C577CBB8290751090046DD71 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C577CBB7290751090046DD71 /* DataController.swift */; };
+		C577CBBB2907533A0046DD71 /* Sheets.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C577CBB92907533A0046DD71 /* Sheets.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		C577CBA429074C4F0046DD71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C577CBA629074C500046DD71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C577CBA929074C500046DD71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C577CBB129074D9A0046DD71 /* SheetCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetCreatorView.swift; sourceTree = "<group>"; };
+		C577CBB3290750260046DD71 /* SheetViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetViewerView.swift; sourceTree = "<group>"; };
+		C577CBB52907503A0046DD71 /* SheetPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPickerView.swift; sourceTree = "<group>"; };
+		C577CBB7290751090046DD71 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		C577CBBA2907533A0046DD71 /* Sheets.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sheets.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +62,11 @@
 			isa = PBXGroup;
 			children = (
 				C577CBA229074C4F0046DD71 /* Accessible_Character_SheetApp.swift */,
-				C577CBA429074C4F0046DD71 /* ContentView.swift */,
+				C577CBB029074C730046DD71 /* Views */,
 				C577CBA629074C500046DD71 /* Assets.xcassets */,
 				C577CBA829074C500046DD71 /* Preview Content */,
+				C577CBB7290751090046DD71 /* DataController.swift */,
+				C577CBB92907533A0046DD71 /* Sheets.xcdatamodeld */,
 			);
 			path = "Accessible Character Sheet";
 			sourceTree = "<group>";
@@ -65,6 +77,17 @@
 				C577CBA929074C500046DD71 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C577CBB029074C730046DD71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C577CBA429074C4F0046DD71 /* ContentView.swift */,
+				C577CBB129074D9A0046DD71 /* SheetCreatorView.swift */,
+				C577CBB3290750260046DD71 /* SheetViewerView.swift */,
+				C577CBB52907503A0046DD71 /* SheetPickerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C577CBB229074D9A0046DD71 /* SheetCreatorView.swift in Sources */,
+				C577CBB8290751090046DD71 /* DataController.swift in Sources */,
 				C577CBA529074C4F0046DD71 /* ContentView.swift in Sources */,
+				C577CBB4290750260046DD71 /* SheetViewerView.swift in Sources */,
+				C577CBBB2907533A0046DD71 /* Sheets.xcdatamodeld in Sources */,
+				C577CBB62907503A0046DD71 /* SheetPickerView.swift in Sources */,
 				C577CBA329074C4F0046DD71 /* Accessible_Character_SheetApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +367,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C577CBB92907533A0046DD71 /* Sheets.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C577CBBA2907533A0046DD71 /* Sheets.xcdatamodel */,
+			);
+			currentVersion = C577CBBA2907533A0046DD71 /* Sheets.xcdatamodel */;
+			path = Sheets.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C577CB9729074C4F0046DD71 /* Project object */;
 }

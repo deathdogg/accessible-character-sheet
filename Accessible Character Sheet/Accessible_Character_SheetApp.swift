@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Accessible_Character_SheetApp: App {
+	@StateObject private var dataController = DataController()
     var body: some Scene {
         WindowGroup {
             ContentView()
+										.environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
