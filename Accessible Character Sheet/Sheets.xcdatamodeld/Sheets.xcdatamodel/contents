@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Sheet" representedClassName="Sheet" syncable="YES" codeGenerationType="class">
+    <entity name="Ability" representedClassName="Ability" syncable="YES" codeGenerationType="class">
+        <relationship name="ability" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="abilities" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Basics" representedClassName="Basics" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="aliases" optional="YES" attributeType="String"/>
+        <attribute name="dyminion" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="effort" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="facts" optional="YES" attributeType="String"/>
+        <attribute name="goals" optional="YES" attributeType="String"/>
+        <attribute name="influence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="organization" optional="YES" attributeType="String"/>
+        <attribute name="pcClass" optional="YES" attributeType="String"/>
+        <attribute name="pronouns" optional="YES" attributeType="String"/>
+        <attribute name="race" optional="YES" attributeType="String"/>
+        <relationship name="basics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="basics" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Dice" representedClassName="Dice" syncable="YES" codeGenerationType="class">
+        <attribute name="diceAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numberOfSides" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="EquipmentPiece" representedClassName="EquipmentPiece" syncable="YES" codeGenerationType="class">
+        <attribute name="damage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numberOfDice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numberOfSides" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="equipment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="equipment" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="Finances" representedClassName="Finances" syncable="YES" codeGenerationType="class">
+        <attribute name="cp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="finances" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="finances" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="SavingThrow" representedClassName="SavingThrow" syncable="YES" codeGenerationType="class">
+        <attribute name="dc" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numberOfSides" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="profBonus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="savingThrows" inverseEntity="Stats"/>
+    </entity>
+    <entity name="Sheet" representedClassName="Sheet" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ability" inverseName="ability" inverseEntity="Ability"/>
+        <relationship name="basics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Basics" inverseName="basics" inverseEntity="Basics"/>
+        <relationship name="equipment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EquipmentPiece" inverseName="equipment" inverseEntity="EquipmentPiece"/>
+        <relationship name="finances" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Finances" inverseName="finances" inverseEntity="Finances"/>
+        <relationship name="skills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Skills" inverseName="skills" inverseEntity="Skills"/>
         <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="sheet" inverseEntity="Stats"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="class">
@@ -9,14 +60,25 @@
         <attribute name="numberOfDice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="numberOfSides" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="Skills" representedClassName="Skills" syncable="YES" codeGenerationType="class"/>
+    <entity name="Skills" representedClassName="Skills" syncable="YES" codeGenerationType="class">
+        <relationship name="skills" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="skills" inverseEntity="Sheet"/>
+    </entity>
+    <entity name="StatModifier" representedClassName="StatModifier" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="modifiers" inverseEntity="Stats"/>
+    </entity>
     <entity name="Stats" representedClassName="Stats" syncable="YES" codeGenerationType="class">
+        <attribute name="armourClass" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="chr" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="con" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="int" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="str" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="wis" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="modifiers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StatModifier" inverseName="stats" inverseEntity="StatModifier"/>
+        <relationship name="savingThrows" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavingThrow" inverseName="stats" inverseEntity="SavingThrow"/>
         <relationship name="sheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sheet" inverseName="stats" inverseEntity="Sheet"/>
     </entity>
 </model>
